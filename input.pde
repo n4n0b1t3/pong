@@ -16,6 +16,9 @@ class InputHandler{
     case 'd':
       game.paddle.moveRight();
       break;
+    case 'x':
+      exit();
+      break;
    }
  }
  

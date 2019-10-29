@@ -7,9 +7,16 @@ https://www.youtube.com/watch?v=XOit8eK3goM&list=PLht-7jHewMA6Wywk_bk0RnD4OvHZ5q
 //PrintWriter output; //<>//
 PImage brick;
 Game game;
+float sizeFactor = 0.8;
+
+
+void settings(){
+  int gameHeight = int(displayHeight * sizeFactor); // size of the game depends on the screen height
+  int gameWidth = int(gameHeight + gameHeight/3);// width : height = 4:3
+  size(gameWidth, gameHeight, P2D);
+}
 
 void setup() {
-  size(1600, 1200, P2D);
   brick = loadImage("assets/images/brick.png");
   game = new Game(width, height);
   game.start();

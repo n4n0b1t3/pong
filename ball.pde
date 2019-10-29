@@ -1,5 +1,5 @@
 class Ball{
-  int diam, gameWidth, gameHeight;
+  int diam, radius, gameWidth, gameHeight;
   color objColor;
   PVector position = new PVector();
   PVector speed = new PVector();
@@ -9,7 +9,9 @@ class Ball{
   Ball(Game _g){
    game = _g;
    objColor = color(255, 0,  0);
-   diam = 100;
+   //println(game.height);
+   diam = game.height / 12;
+   radius = diam / 2;
    speed.set(5.0, 5.0);
    position.set(100.0, 100.0);
    ballshape = createShape(ELLIPSE, position.x, position.y, diam, diam);
@@ -25,12 +27,33 @@ class Ball{
   void update(float deltaTime){
     position.x += speed.x;
     position.y += speed.y;
-    if(position.x + diam/2 > game.gameWidth || position.x - diam/2 < 0){
+    int ballBottom = int(position.y + this.radius);
+    int ballLeft = int(position.x - this.radius);
+    int ballRight = int(position.x + this.radius);
+    int paddleRight = int(game.paddle.position.x + game.paddle.width/2);
+    int paddleLeft = int(game.paddle.position.x - game.paddle.width/2);
+    int paddleTop = int(game.paddle.position.y - game.paddle.height/2);
+
+    //println("bob: ", ballBottom);
+    
+    
+    // check for wall collision left or right
+    if(position.x + radius >= game.width || position.x - radius <= 0){
      speed.x = -speed.x; 
     }
-    if(position.y + diam/2 > game.gameHeight || position.y - diam/2 - 2 < 0){
+    // check for wall collision top or bottom
+    if(position.y + radius >= game.height || position.y - radius <= 0){
      speed.y = -speed.y; 
     }
+    
+    // check for paddle collision top
+    if((ballBottom >= paddleTop) 
+        && ballLeft <= paddleRight 
+        && ballRight >= paddleLeft){
+      speed.y = -speed.y;
+      //position.y = position.y - radius;
+    }
+    
     ballshape.translate(speed.x, speed.y);
   }
 }

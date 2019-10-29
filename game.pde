@@ -1,12 +1,12 @@
 class Game{
-  int gameWidth, gameHeight;
+  int width, height;
   Ball ball;
   Paddle paddle;
   InputHandler input;
 
   Game(int _w, int _h){  
-   gameWidth = _w;
-   gameHeight = _h;
+   width = _w; // I decided to overwrite here the inbuild width and height, since I am using the class as preselector
+   height = _h;
   }
   
   void start(){
