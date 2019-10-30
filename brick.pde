@@ -1,14 +1,15 @@
 class Brick{
   int width, height;
-  PVector position;
+  PVector position = new PVector(0,0);
   Game game;
   PImage brick;
 
- Brick(Game _g, PVector _pos){
+ Brick(Game _g, int _x, int _y){
   game = _g;
-  position = _pos;
-  width = game.width / 12;
-  height = game.height / 18;
+  position.x = _x;
+  position.y = _y;
+  width = game.brickWidth;
+  height = game.brickHeight;
   brick = loadImage("assets/images/brick.png");
  }
  

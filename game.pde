@@ -1,25 +1,26 @@
 class Game{
-  int width, height;
+  int width, height, brickWidth, brickHeight, bricksPerRow;
   Ball ball;
   Paddle paddle;
   InputHandler input;
-  Brick bricks[] = new Brick[10];
+  Brick bricks[];
 
   Game(int _w, int _h){  
    width = _w; // I decided to overwrite here the inbuild width and height, since I am using the class as preselector
    height = _h;
+   bricksPerRow = 12;
+   brickWidth = width / bricksPerRow;
+   brickHeight = brickWidth / 3; //<>//
   }
   
   void start(){
-
+   bricks = new Brick[bricksPerRow]; //<>//
    paddle = new Paddle(this);
    ball = new Ball(this);
    input = new InputHandler(this);
-   PVector brickPosition = new PVector(0, 0);
-   for(int i = 0; i < 10; i++) {
-     brickPosition.set(62 * i, 100); //<>//
-     bricks[i] = new Brick(this, brickPosition);
-     println(bricks[i].position.x);
+   
+   for(int i = 0; i < bricks.length; i++) {
+     bricks[i] = new Brick(this, brickWidth * i, brickHeight); //<>//
    }   
   }
   
@@ -27,7 +28,7 @@ class Game{
     paddle.update(deltaTime());  
     ball.update(deltaTime());
     for(int i = 0; i < bricks.length; i++){
-      bricks[i].update();
+      bricks[i].update(); //<>//
     }
   }
   
@@ -35,7 +36,7 @@ class Game{
     paddle.display();
     ball.display();
     for(int i = 0; i < bricks.length; i++){
-      println(bricks[i].position.x);
+      //println(bricks[i].position.x);
       bricks[i].display(); //<>//
     }
   }
