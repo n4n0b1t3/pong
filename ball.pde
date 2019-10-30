@@ -1,5 +1,5 @@
 class Ball{
-  int diam, radius, gameWidth, gameHeight;
+  int diam, radius;
   color objColor;
   PVector position = new PVector();
   PVector speed = new PVector();

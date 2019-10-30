@@ -5,7 +5,6 @@ https://www.youtube.com/watch?v=XOit8eK3goM&list=PLht-7jHewMA6Wywk_bk0RnD4OvHZ5q
 
 
 //PrintWriter output; //<>//
-PImage brick;
 Game game;
 float sizeFactor = 0.8;
 
@@ -17,7 +16,6 @@ void settings(){
 }
 
 void setup() {
-  brick = loadImage("assets/images/brick.png");
   game = new Game(width, height);
   game.start();
 }
@@ -30,7 +28,6 @@ void draw() {
   background(255);
   game.update();
   game.display(); //<>//
-  image(brick, 50,50, 140, 60);
 }
 
 void keyPressed(){
@@ -44,8 +41,8 @@ void keyReleased(){
 /* time in milliseconds between each frames 
 https://forum.processing.org/two/discussion/10289/simple-physics
 */
-int deltaTime(){ //<>//
-  int delta = millis() - lastMillis; //<>//
+int deltaTime(){
+  int delta = millis() - lastMillis;
   lastMillis = millis();
   return delta;
 }
