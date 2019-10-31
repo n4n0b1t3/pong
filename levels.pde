@@ -12,10 +12,11 @@ int[][] level1 = {
   {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 };
 
-void buildLevel(int[][] level){
-  for(int i = 0; i < level.length; i++){
+void buildLevel(Game game, int[][] level){
+  Brick[] bricks = {new Brick(game, 0, 0), new Brick(game, 100, 100)};
+  for(int i = 0; i < level.length; i++){ //<>//
     for(int j = 0; j < level[i].length; j++){
-      
+      // bricks = append(bricks, new Brick(game, game.brickWidth * j, game.brickHeight));
     }
   }
 }
