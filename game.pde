@@ -14,13 +14,13 @@ class Game{
   }
   
   void start(){
-   bricks = new Brick[bricksPerRow]; //<>//
+   bricks = new Brick[bricksPerRow];
    paddle = new Paddle(this);
    ball = new Ball(this);
    input = new InputHandler(this);
    
    for(int i = 0; i < bricks.length; i++) {
-     bricks[i] = new Brick(this, brickWidth * i, brickHeight); //<>//
+     bricks[i] = new Brick(this, brickWidth * i, brickHeight);
    }   
   }
   
@@ -28,16 +28,17 @@ class Game{
     paddle.update(deltaTime());  
     ball.update(deltaTime());
     for(int i = 0; i < bricks.length; i++){
-      bricks[i].update(); //<>//
+      bricks[i].update();
     }
   }
   
   void display(){
     paddle.display();
     ball.display();
+    
     for(int i = 0; i < bricks.length; i++){
       //println(bricks[i].position.x);
-      bricks[i].display(); //<>//
+      bricks[i].display();
     }
   }
 }
