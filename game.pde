@@ -14,14 +14,12 @@ class Game{
   }
   
   void start(){
-   bricks = new Brick[bricksPerRow];
+   bricks = buildLevel(this, level1);
    paddle = new Paddle(this);
    ball = new Ball(this);
    input = new InputHandler(this);
    
-   for(int i = 0; i < bricks.length; i++) {
-     bricks[i] = new Brick(this, brickWidth * i, brickHeight);
-   }   
+     
   }
   
   void update(){
@@ -34,10 +32,8 @@ class Game{
   
   void display(){
     paddle.display();
-    ball.display();
-    
+    ball.display();    
     for(int i = 0; i < bricks.length; i++){
-      //println(bricks[i].position.x);
       bricks[i].display();
     }
   }

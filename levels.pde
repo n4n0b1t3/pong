@@ -12,11 +12,24 @@ int[][] level1 = {
   {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 };
 
-void buildLevel(Game game, int[][] level){
-  Brick[] bricks = {new Brick(game, 0, 0), new Brick(game, 100, 100)};
+/* Level building function
+
+  helps to create levels based on a simple two dim array.
+  Currently implemented as 1 = create brick, 0 = don't create brick at that position.
+  Can be expanded with all kind of markers for other type of tiles
+*/
+Brick[] buildLevel(Game game, int[][] level){
+  Brick[] bricks = {};
+  int distanceFromTop = 20;
   for(int i = 0; i < level.length; i++){ //<>//
     for(int j = 0; j < level[i].length; j++){
-      // bricks = append(bricks, new Brick(game, game.brickWidth * j, game.brickHeight));
+      /* https://processing.org/reference/append_.html
+      When using an array of objects, the data returned from the function must be cast to the object array's data type. For example: SomeClass[] items = (SomeClass[]) append(originalArray, element)
+      */
+      if(level[i][j]==1){
+        bricks = (Brick[])append(bricks, new Brick(game, game.brickWidth * j, distanceFromTop + game.brickHeight * i));
+      }
     }
   }
+  return bricks;
 }
