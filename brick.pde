@@ -1,20 +1,31 @@
-class Brick{
+class Brick implements Gameobject{
   int width, height;
-  PVector position = new PVector(0,0);
+  PVector position = new PVector();
   Game game;
   PImage brick;
 
- Brick(Game _g, int _x, int _y){
-  game = _g;
-  position.x = _x;
-  position.y = _y;
+ Brick(Game game, int x, int y){
+  this.game = game;
+  position.x = x;
+  position.y = y;
   width = game.brickWidth;
   height = game.brickHeight;
   brick = loadImage("assets/images/brick.png");
  }
  
+ public float getX(){return position.x;}
+ public float getY(){return position.y;} 
+ public void setX(float x){position.x = x;}
+ public void setY(float y){position.y = y;}
+ public PVector getPosition(){return this.position;}
+ public int getWidth(){return this.width;}
+ public int getHeight(){return this.height;}
+
+ 
  void update(){
-   
+   if(detectCollision(game.ball, this)){
+     this.game.ball.setSpeedY(-this.game.ball.getSpeedY()); 
+   }
  }
  
  void display(){

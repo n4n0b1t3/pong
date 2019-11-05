@@ -4,10 +4,9 @@ https://www.youtube.com/watch?v=XOit8eK3goM&list=PLht-7jHewMA6Wywk_bk0RnD4OvHZ5q
 */
 
 
-//PrintWriter output; //<>//
+//PrintWriter output;
 Game game;
 float sizeFactor = 0.8;
-
 
 void settings(){
   int gameHeight = int(displayHeight * sizeFactor); // size of the game depends on the screen height
@@ -18,6 +17,7 @@ void settings(){
 void setup() {
   game = new Game(width, height);
   game.start();
+  println("start ------------------------------");
 }
 
 
@@ -25,9 +25,10 @@ void setup() {
 int lastMillis = 0;
 
 void draw() {
+ 
   background(255);
   game.update();
-  game.display(); //<>//
+  game.display();
 }
 
 void keyPressed(){

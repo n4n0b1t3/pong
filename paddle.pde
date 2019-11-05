@@ -2,21 +2,30 @@
 https://www.youtube.com/watch?v=3yoysTRd6Iw&list=PLht-7jHewMA6Wywk_bk0RnD4OvHZ5qL2c&index=5
 */
 
-class Paddle{
-  int width, height, gameWidth, gameHeight, speed, maxSpeed;  
-  color objColor;
+class Paddle implements Gameobject{
+  int width, height, speed, maxSpeed;  
   PVector position = new PVector();
-  Game game;
+  Game game;  
+  color objColor;
  
- Paddle(Game _g){
-   game = _g;
+ Paddle(Game game){
+   this.game = game;
    width = game.width / 6;
    height = game.height / 20;
-   objColor = color(100,100,50);
+   objColor = color(100,100,100);
    speed = 0;
    maxSpeed = game.width / 40;
    position.set(200, game.height - game.height / 16);
  }
+
+ public float getX(){return position.x;}
+ public float getY(){return position.y;} 
+ public void setX(float x){position.x = x;}
+ public void setY(float y){position.y = y;}
+ public PVector getPosition(){return this.position;}
+ public int getWidth(){return this.width;}
+ public int getHeight(){return this.height;}
+ 
  
  void display(){
    rectMode(CENTER);
@@ -47,5 +56,5 @@ class Paddle{
    //keep in game
    if(position.x < 0 + halfObjWidth){ position.x = 0 + halfObjWidth; }
    if(position.x > game.width - halfObjWidth ){ position.x = game.width - halfObjWidth;}
- }  //<>//
+ } 
 }

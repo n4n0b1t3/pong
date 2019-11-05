@@ -4,8 +4,8 @@ class InputHandler{
  Game game;
  
  // named objects passed to constructor are available in the whole class
- InputHandler(Game _g){
-   game = _g;
+ InputHandler(Game game){
+   this.game = game;
  }
  
  void keyDown(){

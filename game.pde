@@ -4,13 +4,15 @@ class Game{
   Paddle paddle;
   InputHandler input;
   Brick bricks[];
+  DebuggerScreen tracking;
 
-  Game(int _w, int _h){  
-   width = _w; // I decided to overwrite here the inbuild width and height, since I am using the class as preselector
-   height = _h;
+  Game(int w, int h){  
+   width = w; // I decided to overwrite here the inbuild width and height, since I am using the class as preselector
+   height = h;
+   tracking = new DebuggerScreen(400, 400);
    bricksPerRow = 12;
    brickWidth = width / bricksPerRow;
-   brickHeight = brickWidth / 3; //<>//
+   brickHeight = brickWidth / 3;
   }
   
   void start(){
@@ -18,8 +20,6 @@ class Game{
    paddle = new Paddle(this);
    ball = new Ball(this);
    input = new InputHandler(this);
-   
-     
   }
   
   void update(){

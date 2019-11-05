@@ -9,7 +9,7 @@ int[][] level1 = {
   {1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0},
   {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
   {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-  {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+  {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 };
 
 /* Level building function
@@ -21,7 +21,7 @@ int[][] level1 = {
 Brick[] buildLevel(Game game, int[][] level){
   Brick[] bricks = {};
   int distanceFromTop = 20;
-  for(int i = 0; i < level.length; i++){ //<>//
+  for(int i = 0; i < level.length; i++){
     for(int j = 0; j < level[i].length; j++){
       /* https://processing.org/reference/append_.html
       When using an array of objects, the data returned from the function must be cast to the object array's data type. For example: SomeClass[] items = (SomeClass[]) append(originalArray, element)
