@@ -16,11 +16,12 @@ boolean detectCollision(Ball ball, final Gameobject go){
        ballRight >= objLeft
     ){
 /*
+*/
      println("obj:", go.getClass().getSimpleName());
      println("bB:", ballBottom, ", bT:", ballTop, ", bL:", ballLeft, ", bR:", ballRight);
      println("oB:", objBottom, ", oT:", objTop, ", oL:", objLeft, ", oR:", objRight);
      println("...");
-*/
+
      return true;
     }
     

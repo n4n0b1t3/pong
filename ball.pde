@@ -16,10 +16,6 @@ class Ball implements Gameobject{
    radius = diam / 2;
    speed.set(5.0, 5.0);
    position.set(100.0, 200.0);
-   ballshape = createShape(ELLIPSE, position.x, position.y, diam, diam);
-   ballshape.setStrokeWeight(1.0);
-   ballshape.setStroke(color(0,150,55));
-   ballshape.setFill(objColor);
   }
 
   public float getSpeedX(){ return speed.x;}
@@ -36,7 +32,9 @@ class Ball implements Gameobject{
   public int getHeight(){return this.height;}  
   
   void display(){
-   shape(ballshape);
+   //shape(ballshape);
+   ellipseMode(CENTER); 
+   ellipse(position.x, position.y, diam, diam);
   }
   
   void update(float deltaTime){
@@ -63,7 +61,5 @@ class Ball implements Gameobject{
     }
     
     if(detectCollision(this, game.paddle)) speed.y = -speed.y;
-    
-    ballshape.translate(speed.x, speed.y);
   }
 }

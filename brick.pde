@@ -24,11 +24,14 @@ class Brick implements Gameobject{
  
  void update(){
    if(detectCollision(game.ball, this)){
-     this.game.ball.setSpeedY(-this.game.ball.getSpeedY()); 
+     game.ball.setSpeedY(-game.ball.getSpeedY());
+     this.brick = loadImage("assets/images/brick_touched.png");
+     //noLoop();
    }
  }
  
  void display(){
-  image(brick, position.x, position.y, this.width, this.height);
+   imageMode(CENTER);
+   image(brick, position.x, position.y, this.width, this.height);
  }
 }

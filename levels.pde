@@ -27,7 +27,7 @@ Brick[] buildLevel(Game game, int[][] level){
       When using an array of objects, the data returned from the function must be cast to the object array's data type. For example: SomeClass[] items = (SomeClass[]) append(originalArray, element)
       */
       if(level[i][j]==1){
-        bricks = (Brick[])append(bricks, new Brick(game, game.brickWidth * j, distanceFromTop + game.brickHeight * i));
+        bricks = (Brick[])append(bricks, new Brick(game, game.brickWidth * j + game.brickWidth/2, distanceFromTop + game.brickHeight * i));
       }
     }
   }
